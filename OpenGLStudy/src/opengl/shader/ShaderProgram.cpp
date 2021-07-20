@@ -32,9 +32,9 @@ namespace opengl {
 		}
 
 		ShaderProgram::~ShaderProgram() {
-			/*if (id != INVALID_SHADER_ID) {
+			if (id != INVALID_SHADER_ID) {
 				glDeleteProgram(id);
-			}*/
+			}
 		}
 	}
 }

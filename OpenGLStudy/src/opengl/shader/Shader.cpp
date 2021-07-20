@@ -29,9 +29,9 @@ namespace opengl {
 		}
 
 		Shader::~Shader() {
-			/*if (id != INVALID_SHADER_ID) {
+			if (id != INVALID_SHADER_ID) {
 				glDeleteShader(id);
-			}*/
+			}
 		}
 
 		int Shader::getId() {
