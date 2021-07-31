@@ -1,6 +1,7 @@
 #include <glad.h>
 
-#include <opengl/factory/PositionColorGraphicComponentsFactory.h>
+#include <opengl/texture/TwoDTexture.h>
+#include <opengl/factory/TwoDTextureGraphicComponentFactory.h>
 
 #include <lesson/LearnOpenGLLesson.h>
 
@@ -9,6 +10,7 @@ namespace lesson {
 	constexpr auto HEIGHT = 600;
 
 	const std::string WINDOW_NAME = "Learn OpenGL";
+	const std::string TEXTURE_FILENAME = "res/textures/potato-chip-ridges.jpg";
 
 	LearnOpenGLLesson::LearnOpenGLLesson() : OpenGLLesson(WINDOW_NAME, WIDTH, HEIGHT) {
 		renderEngine = std::make_unique<opengl::RenderEngine>(windowName, width, height);
@@ -16,12 +18,13 @@ namespace lesson {
 
 	int LearnOpenGLLesson::run() {
 		std::vector<float> vertices = {
-			-0.4f, 0.4f, 0.0f, 0.90f, 0.22f, 0.21f,
-			0.0f, 0.75f, 0.0f, 0.98f, 0.55f, 0.0f,
-			0.4f, 0.4f, 0.0f, 0.99f, 0.85f, 0.21f,
-			0.4f, -0.4f, 0.0f, 0.26f, 0.63f, 0.28f,
-			0.0f, -0.75f, 0.0f,  0.12f, 0.53f, 0.89f,
-			-0.4f, -0.4f, 0.0f, 0.37f, 0.21f, 0.69f
+			// x ,  y  ,  z  ,  r   ,  g   ,  b   ,  s  , t
+			-0.4f, 0.4f, 0.0f, 0.90f, 0.22f, 0.21f, 0.3f, 0.7f,
+			0.0f, 0.75f, 0.0f, 0.98f, 0.55f, 0.0f, 0.5f, 0.875f,
+			0.4f, 0.4f, 0.0f, 0.99f, 0.85f, 0.21f, 0.7f, 0.7f,
+			0.4f, -0.4f, 0.0f, 0.26f, 0.63f, 0.28f, 0.7f, 0.3f,
+			0.0f, -0.75f, 0.0f,  0.12f, 0.53f, 0.89f, 0.5f, 0.125f,
+			-0.4f, -0.4f, 0.0f, 0.37f, 0.21f, 0.69f, 0.3f, 0.3f,
 		};
 
 		std::vector<unsigned int> indices = {
@@ -31,7 +34,9 @@ namespace lesson {
 			5, 4, 3
 		};
 
-		auto factory = opengl::factory::PositionColorGraphicComponentsFactory();
+		auto texture = opengl::texture::TwoDTexture(TEXTURE_FILENAME);
+
+		auto factory = opengl::factory::TwoDTextureGraphicComponentFactory();
 		renderEngine->setShaderProgram(factory.getShaderProgram());
 
 		auto vaoBuilder = factory.getVAOBuilder();

@@ -4,7 +4,8 @@ namespace opengl {
 	namespace vertex {
 		enum class VAOType
 		{
-			POSITION_COLOR
+			POSITION_COLOR,
+			TWO_D_TEXTURE
 		};
 	}
 }

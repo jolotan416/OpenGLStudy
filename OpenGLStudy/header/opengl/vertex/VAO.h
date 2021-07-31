@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #include <opengl/vertex/VBO.h>
 #include <opengl/vertex/EBO.h>
 

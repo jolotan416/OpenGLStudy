@@ -25,8 +25,9 @@ namespace opengl {
 			static constexpr int POSITION_ATTRIB_SIZE = 3;
 			static constexpr int COLOR_ATTRIB_SIZE = 3;
 			static constexpr int STRIDE = (POSITION_ATTRIB_SIZE + COLOR_ATTRIB_SIZE) * sizeof(float);
+
 			static constexpr int POSITION_ATTRIB_OFFSET = 0;
-			static constexpr int COLOR_ATTRIB_OFFSET = (POSITION_ATTRIB_OFFSET + COLOR_ATTRIB_SIZE) * sizeof(float);
+			static constexpr int COLOR_ATTRIB_OFFSET = POSITION_ATTRIB_SIZE * sizeof(float);
 		};
 	}
 }

@@ -1,5 +1,6 @@
 #include <opengl/vertex/VAOBuilder.h>
 #include <opengl/vertex/PositionColorVAO.h>
+#include <opengl/vertex/TwoDTextureVAO.h>
 
 namespace opengl {
 	namespace vertex {
@@ -8,6 +9,10 @@ namespace opengl {
 			{
 			case opengl::vertex::VAOType::POSITION_COLOR:
 				vao = std::make_unique<PositionColorVAO>();
+
+				break;
+			case opengl::vertex::VAOType::TWO_D_TEXTURE:
+				vao = std::make_unique<TwoDTextureVAO>();
 
 				break;
 			default:

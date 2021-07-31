@@ -66,6 +66,18 @@
     <ClCompile Include="src\opengl\factory\PositionColorGraphicComponentsFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\opengl\texture\TwoDTexture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utilities\ImageLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\opengl\vertex\TwoDTextureVAO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\opengl\factory\TwoDTextureGraphicComponentFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header\lesson\LegacyOpenGLLesson.h">
@@ -119,9 +131,23 @@
     <ClInclude Include="header\opengl\factory\PositionColorGraphicComponentsFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="header\opengl\texture\TwoDTexture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\utilities\ImageLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\opengl\vertex\TwoDTextureVAO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\opengl\factory\TwoDTextureGraphicComponentFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\position_color_fragment.shader" />
     <None Include="res\shaders\position_color_vertex.shader" />
+    <None Include="res\shaders\two_d_texture_fragment.shader" />
+    <None Include="res\shaders\two_d_texture_vertex.shader" />
   </ItemGroup>
 </Project>

@@ -1,7 +1,3 @@
-#include <opengl/vertex/VAOType.h>
-#include <opengl/vertex/VAOBuilder.h>
-#include <opengl/shader/ShaderProgram.h>
-
 #include <opengl/factory/PositionColorGraphicComponentsFactory.h>
 
 namespace opengl {
