@@ -6,9 +6,13 @@
 
 namespace opengl {
 	namespace texture {
-		TwoDTexture::TwoDTexture(std::string filename) {
+		const std::string TwoDTexture::TEXTURE_NAME = "texture";
+
+		TwoDTexture::TwoDTexture(int locId, std::string filename) {
+			locationId = locId;
 			imageLoader = std::make_unique<utilities::ImageLoader>(filename);
 
+			glActiveTexture(GL_TEXTURE0 + locId);
 			glGenTextures(1, &id);
 			glBindTexture(GL_TEXTURE_2D, id);
 
@@ -24,6 +28,14 @@ namespace opengl {
 
 		TwoDTexture::~TwoDTexture() {
 			glDeleteTextures(1, &id);
+		}
+
+		int TwoDTexture::getLocationId() {
+			return locationId;
+		}
+
+		std::string TwoDTexture::getTextureName() {
+			return TEXTURE_NAME + std::to_string(locationId);
 		}
 	}
 }

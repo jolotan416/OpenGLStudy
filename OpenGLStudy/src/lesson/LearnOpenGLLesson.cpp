@@ -10,7 +10,8 @@ namespace lesson {
 	constexpr auto HEIGHT = 600;
 
 	const std::string WINDOW_NAME = "Learn OpenGL";
-	const std::string TEXTURE_FILENAME = "res/textures/potato-chip-ridges.jpg";
+	const std::string TEXTURE_0_FILENAME = "res/textures/herb-potato-chip.jpg";
+	const std::string TEXTURE_1_FILENAME = "res/textures/potato-chip-ridges.jpg";
 
 	LearnOpenGLLesson::LearnOpenGLLesson() : OpenGLLesson(WINDOW_NAME, WIDTH, HEIGHT) {
 		renderEngine = std::make_unique<opengl::RenderEngine>(windowName, width, height);
@@ -34,10 +35,14 @@ namespace lesson {
 			5, 4, 3
 		};
 
-		auto texture = opengl::texture::TwoDTexture(TEXTURE_FILENAME);
+		auto texture0 = opengl::texture::TwoDTexture(0, TEXTURE_0_FILENAME);
+		auto texture1 = opengl::texture::TwoDTexture(1, TEXTURE_1_FILENAME);
 
 		auto factory = opengl::factory::TwoDTextureGraphicComponentFactory();
-		renderEngine->setShaderProgram(factory.getShaderProgram());
+		auto shaderProgram = factory.getShaderProgram();
+		shaderProgram.setIntUniform(texture0.getTextureName(), texture0.getLocationId());
+		shaderProgram.setIntUniform(texture1.getTextureName(), texture1.getLocationId());
+		renderEngine->setShaderProgram(shaderProgram);
 
 		auto vaoBuilder = factory.getVAOBuilder();
 		vaoBuilder.setVertexBuffer(vertices);

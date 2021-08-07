@@ -36,5 +36,10 @@ namespace opengl {
 				glDeleteProgram(id);
 			}
 		}
+
+		void ShaderProgram::setIntUniform(const std::string& variableName, int value) {
+			auto variableLocation = glGetUniformLocation(id, variableName.c_str());
+			glUniform1i(variableLocation, value);
+		}
 	}
 }

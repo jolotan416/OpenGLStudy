@@ -16,6 +16,8 @@ namespace opengl {
 
 			~ShaderProgram();
 
+			void setIntUniform(const std::string&, int);
+
 		private:
 			int id;
 		};

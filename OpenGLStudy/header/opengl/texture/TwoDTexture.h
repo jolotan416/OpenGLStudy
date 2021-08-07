@@ -10,7 +10,7 @@ namespace opengl {
 		class TwoDTexture
 		{
 		public:
-			TwoDTexture(std::string);
+			TwoDTexture(int, std::string);
 			~TwoDTexture();
 
 			TwoDTexture(TwoDTexture&) = default;
@@ -19,8 +19,14 @@ namespace opengl {
 			TwoDTexture& operator=(TwoDTexture&) = default;
 			TwoDTexture& operator=(TwoDTexture&&) = default;
 
+			int getLocationId();
+			std::string getTextureName();
+
 		private:
+			static const std::string TEXTURE_NAME;
+
 			unsigned int id;
+			int locationId;
 			std::unique_ptr<utilities::ImageLoader> imageLoader;
 		};
 	}
