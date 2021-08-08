@@ -35,13 +35,31 @@ namespace lesson {
 			5, 4, 3
 		};
 
+		opengl::transforms::TransformData translationTransform = {
+			0.0001f, 0.0f, 0.00f, 0.0f, 0.0f, 0.0f
+		};
+
+		opengl::transforms::TransformData scalingTransform = {
+			0.0001f, 1.0f, 0.0001f, 1.0f, 0.0001f, 1.0f
+		};
+
+		opengl::transforms::TransformData rotationTransform = {
+			0.0f, 0.0f, 0.0f, 0.0f, 0.001f, 0.0f
+		};
+
+		auto matrixTransform = std::make_unique<opengl::transforms::MatrixTransform>();
+		matrixTransform->setTranslationTransform(translationTransform);
+		matrixTransform->setScalingTransform(scalingTransform);
+		matrixTransform->setRotationTransform(rotationTransform);
+		renderEngine->setMatrixTransform(std::move(matrixTransform));
+
 		auto texture0 = opengl::texture::TwoDTexture(0, TEXTURE_0_FILENAME);
 		auto texture1 = opengl::texture::TwoDTexture(1, TEXTURE_1_FILENAME);
 
 		auto factory = opengl::factory::TwoDTextureGraphicComponentFactory();
 		auto shaderProgram = factory.getShaderProgram();
-		shaderProgram.setIntUniform(texture0.getTextureName(), texture0.getLocationId());
-		shaderProgram.setIntUniform(texture1.getTextureName(), texture1.getLocationId());
+		shaderProgram.setTexture(texture0.getLocationId());
+		shaderProgram.setTexture(texture1.getLocationId());
 		renderEngine->setShaderProgram(shaderProgram);
 
 		auto vaoBuilder = factory.getVAOBuilder();

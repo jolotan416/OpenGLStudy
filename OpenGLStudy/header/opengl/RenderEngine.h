@@ -4,6 +4,7 @@
 
 #include <opengl/vertex/VAO.h>
 #include <opengl/shader/ShaderProgram.h>
+#include <opengl/transforms/MatrixTransform.h>
 
 namespace opengl {
 	class RenderEngine
@@ -20,6 +21,7 @@ namespace opengl {
 
 		void setVAO(std::unique_ptr<vertex::VAO>);
 		void setShaderProgram(shader::ShaderProgram);
+		void setMatrixTransform(std::unique_ptr<transforms::MatrixTransform>);
 		void run();
 
 	private:
@@ -27,6 +29,7 @@ namespace opengl {
 
 		std::unique_ptr<vertex::VAO> vao;
 		std::unique_ptr<shader::ShaderProgram> shaderProgram;
+		std::unique_ptr<transforms::MatrixTransform> matrixTransform;
 		
 		GLFWwindow* window;
 	};

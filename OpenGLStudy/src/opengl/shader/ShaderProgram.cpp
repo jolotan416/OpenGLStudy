@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include <glad.h>
+#include <glm/gtc/type_ptr.hpp>
 
 #include <opengl/shader/Shader.h>
 
@@ -8,6 +9,9 @@
 
 namespace opengl {
 	namespace shader {
+		const std::string ShaderProgram::TEXTURE_UNIFORM_NAME = "texture";
+		const std::string ShaderProgram::TRANSFORM_UNIFORM_NAME = "transform";
+
 		ShaderProgram::ShaderProgram(std::string vertexShaderFilename,
 			std::string fragmentShaderFilename) {
 			auto vertexShader = Shader(GL_VERTEX_SHADER, vertexShaderFilename);
@@ -37,9 +41,15 @@ namespace opengl {
 			}
 		}
 
-		void ShaderProgram::setIntUniform(const std::string& variableName, int value) {
-			auto variableLocation = glGetUniformLocation(id, variableName.c_str());
-			glUniform1i(variableLocation, value);
+		void ShaderProgram::setTexture(int textureLocationId) {
+			auto variableLocation = glGetUniformLocation(id,
+				(TEXTURE_UNIFORM_NAME + std::to_string(textureLocationId)).c_str());
+			glUniform1i(variableLocation, textureLocationId);
+		}
+
+		void ShaderProgram::setTransform(glm::mat4 transform) {
+			auto variableLocation = glGetUniformLocation(id, TRANSFORM_UNIFORM_NAME.c_str());
+			glUniformMatrix4fv(variableLocation, 1, GL_FALSE, glm::value_ptr(transform));
 		}
 	}
 }

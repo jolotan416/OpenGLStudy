@@ -144,6 +144,7 @@
     <ClCompile Include="src\opengl\vertex\VAO.cpp" />
     <ClCompile Include="src\opengl\vertex\VAOBuilder.cpp" />
     <ClCompile Include="src\opengl\vertex\VBO.cpp" />
+    <ClCompile Include="src\opengl\transforms\MatrixTransform.cpp" />
     <ClCompile Include="src\utilities\FileParser.cpp" />
     <ClCompile Include="src\utilities\ImageLoader.cpp" />
   </ItemGroup>
@@ -160,6 +161,8 @@
     <ClInclude Include="header\opengl\shader\Shader.h" />
     <ClInclude Include="header\opengl\shader\ShaderProgram.h" />
     <ClInclude Include="header\opengl\texture\TwoDTexture.h" />
+    <ClInclude Include="header\opengl\transforms\MatrixTransform.h" />
+    <ClInclude Include="header\opengl\transforms\TransformData.h" />
     <ClInclude Include="header\opengl\vertex\EBO.h" />
     <ClInclude Include="header\opengl\vertex\TwoDTextureVAO.h" />
     <ClInclude Include="header\opengl\vertex\PositionColorVAO.h" />

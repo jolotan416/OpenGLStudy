@@ -78,6 +78,9 @@
     <ClCompile Include="src\opengl\factory\TwoDTextureGraphicComponentFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\opengl\transforms\MatrixTransform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header\lesson\LegacyOpenGLLesson.h">
@@ -141,6 +144,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="header\opengl\factory\TwoDTextureGraphicComponentFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\opengl\transforms\MatrixTransform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\opengl\transforms\TransformData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

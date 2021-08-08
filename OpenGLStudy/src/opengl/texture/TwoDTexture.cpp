@@ -6,8 +6,6 @@
 
 namespace opengl {
 	namespace texture {
-		const std::string TwoDTexture::TEXTURE_NAME = "texture";
-
 		TwoDTexture::TwoDTexture(int locId, std::string filename) {
 			locationId = locId;
 			imageLoader = std::make_unique<utilities::ImageLoader>(filename);
@@ -32,10 +30,6 @@ namespace opengl {
 
 		int TwoDTexture::getLocationId() {
 			return locationId;
-		}
-
-		std::string TwoDTexture::getTextureName() {
-			return TEXTURE_NAME + std::to_string(locationId);
 		}
 	}
 }

@@ -20,11 +20,8 @@ namespace opengl {
 			TwoDTexture& operator=(TwoDTexture&&) = default;
 
 			int getLocationId();
-			std::string getTextureName();
 
 		private:
-			static const std::string TEXTURE_NAME;
-
 			unsigned int id;
 			int locationId;
 			std::unique_ptr<utilities::ImageLoader> imageLoader;

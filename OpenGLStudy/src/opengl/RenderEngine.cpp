@@ -47,6 +47,11 @@ namespace opengl {
 		shaderProgram = std::make_unique<shader::ShaderProgram>(program);
 	}
 
+	void RenderEngine::setMatrixTransform(std::unique_ptr<transforms::MatrixTransform> transform)
+	{
+		matrixTransform = std::move(transform);
+	}
+
 	void RenderEngine::processInputs() {
 		if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
 			glfwSetWindowShouldClose(window, true);
@@ -63,6 +68,10 @@ namespace opengl {
 
 			if (!vao) continue;
 
+			if (matrixTransform) {
+				shaderProgram->setTransform(
+					matrixTransform->buildTransformationMatrix(glfwGetTime()));
+			}
 			glDrawElements(GL_TRIANGLES, vao->getNumberOfIndices(), GL_UNSIGNED_INT, 0);
 
 			glfwSwapBuffers(window);

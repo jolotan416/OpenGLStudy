@@ -2,6 +2,8 @@
 
 #include <string>
 
+#include <glm/glm.hpp>
+
 namespace opengl {
 	namespace shader {
 		class ShaderProgram
@@ -16,9 +18,13 @@ namespace opengl {
 
 			~ShaderProgram();
 
-			void setIntUniform(const std::string&, int);
+			void setTexture(int);
+			void setTransform(glm::mat4);
 
 		private:
+			static const std::string TEXTURE_UNIFORM_NAME;
+			static const std::string TRANSFORM_UNIFORM_NAME;
+
 			int id;
 		};
 	}
